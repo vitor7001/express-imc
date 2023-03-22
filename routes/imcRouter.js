@@ -3,12 +3,12 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   
-    const {altura, peso} = req.body
+    const {height, weight} = req.body
 
-    const imc = peso / (altura * altura)
+    const imc = weight / (height * height)
     const situacao = verificacao(imc)
     
-    res.send({imc: parseFloat(imc.toFixed(2)), imcDescription: situacao})
+    res.send({weight: weight, height: height, imc: parseFloat(imc.toFixed(2)), imcDescription: situacao})
 });
 
 function verificacao (imc) {
