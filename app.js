@@ -8,6 +8,8 @@ var midLogger = require('./middleware/logger.middleware')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var imcRouter = require('./routes/imcRouter')
+
 var app = express();
 
 // view engine setup
@@ -25,6 +27,7 @@ app.use(midLogger)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/imc', imcRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
